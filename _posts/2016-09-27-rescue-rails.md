@@ -79,4 +79,5 @@ RAILS_ENV=production script/delayed_job run --exit-on-complete
 For more information on delayed_job visit their Github page at: [https://github.com/collectiveidea/delayed_job]
 
 [https://github.com/collectiveidea/delayed_job]: https://github.com/collectiveidea/delayed_job
+[delayed_job]: https://github.com/collectiveidea/delayed_job
 [resque]: https://github.com/resque/resque
