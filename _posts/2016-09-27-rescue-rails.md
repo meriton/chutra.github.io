@@ -15,7 +15,7 @@ Options
 Fortunately, on Rails there are many solution to achieve background job processing, though we'll focus here on **[delayed_job]** and **[resque]**.
 
 
-The main difference between the two is that they use different solution for storing jobs that need to be processed - with [delayed_job] using **SQL Table** and [resque] using **Redis** to store jobs that need to be processed.
+The main difference between the two is that they use different solutions for storing jobs that need to be processed - with [delayed_job] using **SQL Table** and [resque] using **Redis** to store jobs that need to be processed.
 
 
 Delayed Job
