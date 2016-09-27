@@ -81,3 +81,9 @@ For more information on delayed_job visit their Github page at: [https://github.
 [https://github.com/collectiveidea/delayed_job]: https://github.com/collectiveidea/delayed_job
 [delayed_job]: https://github.com/collectiveidea/delayed_job
 [resque]: https://github.com/resque/resque
+
+
+Resque
+------
+
+**Coming Soon** ...
