@@ -133,3 +133,25 @@ class SendEmail < ActiveJob::Base
   end
 end
 {% endhighlight %}
+
+
+If we want to queue this job, where ever we have on object ID available in our app, we can just use this one line, to queue a job to be performed:
+
+{% highlight ruby %}
+SendEmail.perform_later(order_id) #Processed in Background
+SendEmail.perform_now(order_id) #Skips background processing, executes immediately
+SendEmail.set(wait: 24.minutes).perform_later(order_id) # Waits 24 minutes, then performs in background
+SendEmail.set(wait_until: DateTime.now + 1.day) # Performs at the specified time.
+{% endhighlight %}
+
+
+Conclusion
+----------
+
+Both [resque] and [delayed_job] are good solution. It is up to you to decide, which one fits your needs better.
+
+If you have jobs that are really time sensitive or a really big amount of jobs that you need to process, then Resque is for you. It's use of Redis, makes it blazing fast, and it's more reliable for professional use.
+
+If you have a moderate amount of jobs, that are not time sensitive, meaning milliseconds don't play a huge role, then delayed_job is for you. It's easier to setup/maintain, doesn't add a dependency like Redis, that would need extra maintaining.
+
+Happy Coding!
