@@ -86,4 +86,50 @@ For more information on delayed_job visit their Github page at: [https://github.
 Resque
 ------
 
-**Coming Soon** ...
+[resque] is a the most used background job processing solution for Ruby on Rails projects. As it's using Redis key-value store, it is also much faster in performing background jobs.
+
+**Installation**
+
+***Step 1:*** Start by adding this line to your gemfile:
+
+{% highlight ruby %}
+gem 'resque'
+{% endhighlight %}
+
+Don't forget to run `bundle install` after.
+
+***Step 2:*** As mentioned, resque needs Redis, so let's install that by running `brew install redis`. If you don't have brew, you can install it by running:
+`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
+
+***Step 3:*** Here we don't need to run any migration, so the next step is just specifying the adapter in config/appicaton.rb
+
+{% highlight ruby %}
+config.active_job.queue_adapter = :resque
+{% endhighlight %}
+
+
+Examples (Applicable to both solutions)
+---------------------------------------
+
+Now that we've chosen either [delayed_job] or [resque], it's time to create our first job/task. Jobs in a Rails >= 4.x.x version app, should be stored under app/jobs directory. We don't need to create these manually, rails offers this generator command:
+`bundle exec rails g job example_task`
+
+After running the command, we should now have a new file under app/jobs directory.
+
+We have full access to our full stack of our application, all of it's models, methods. One thing to keep in mind, is that ActiveJob serializes the arguments that are passed to these jobs, so keep in mind, to never pass a full object, make sure you only pass IDs for objects, and fetch them in the job.
+
+Here is a simple job:
+
+{% highlight ruby %}
+class SendEmail < ActiveJob::Base
+  queue_as :default # We set the queue here, as we can have different workers dedicated to different queues
+
+  def perform(order_id, options = {}) # Note we're only passing an object ID, not the full object.
+    order = Order.find(order_id) # Fetching the object now from the DB
+    if order.processed? && order.completed? # We have full access to model methods
+      order.send_email_to_customers
+    end
+  end
+end
+{% endhighlight %}
