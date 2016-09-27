@@ -2,7 +2,7 @@
 layout: post
 title:  "Background Jobs with ActiveJob | Ruby on Rails"
 date:   2016-09-27 11:23:32
-categories: development
+categories: code
 ---
 
 Do you have a need for background jobs?

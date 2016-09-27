@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to chutra.org"
 date:   2016-09-27 11:23:32
-categories: development
+categories: code
 ---
 
 {% highlight ruby %}
