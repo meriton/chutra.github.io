@@ -150,7 +150,7 @@ SendEmail.set(wait_until: DateTime.now + 1.day) # Performs at the specified time
 Conclusion
 ----------
 
-Both [resque] and [delayed_job] are good solution. It is up to you to decide, which one fits your needs better.
+Both [resque] and [delayed_job] are good solutions. It is up to you to decide, which one fits your needs better.
 
 If you have jobs that are really time sensitive or a really big amount of jobs that you need to process, then Resque is for you. It's use of Redis, makes it blazing fast, and it's more reliable for professional use.
 
