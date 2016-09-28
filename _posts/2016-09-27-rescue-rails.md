@@ -78,11 +78,6 @@ RAILS_ENV=production script/delayed_job run --exit-on-complete
 
 For more information on delayed_job visit their Github page at: [https://github.com/collectiveidea/delayed_job]
 
-[https://github.com/collectiveidea/delayed_job]: https://github.com/collectiveidea/delayed_job
-[delayed_job]: https://github.com/collectiveidea/delayed_job
-[resque]: https://github.com/resque/resque
-
-
 Resque
 ------
 
@@ -107,6 +102,13 @@ Don't forget to run `bundle install` after.
 {% highlight ruby %}
 config.active_job.queue_adapter = :resque
 {% endhighlight %}
+
+
+To start workers with resque, you run this command:
+
+`QUEUE=file_serve rake resque:work`
+
+For more info on Resque, you can visit the Github page at: [https://github.com/resque/resque]
 
 
 Examples (Applicable to both solutions)
@@ -155,3 +157,8 @@ If you have jobs that are really time sensitive or a really big amount of jobs t
 If you have a moderate amount of jobs, that are not time sensitive, meaning milliseconds don't play a huge role, then delayed_job is for you. It's easier to setup/maintain, doesn't add a dependency like Redis, that would need extra maintaining.
 
 Happy Coding!
+
+[https://github.com/collectiveidea/delayed_job]: https://github.com/collectiveidea/delayed_job
+[delayed_job]: https://github.com/collectiveidea/delayed_job
+[resque]: https://github.com/resque/resque
+[https://github.com/resque/resque]: https://github.com/resque/resque
