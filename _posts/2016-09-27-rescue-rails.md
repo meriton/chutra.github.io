@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Background Jobs with ActiveJob | Ruby on Rails"
+title:  "Background Jobs with ActiveJob"
 date:   2016-09-27 11:23:32
 categories: code
 ---
