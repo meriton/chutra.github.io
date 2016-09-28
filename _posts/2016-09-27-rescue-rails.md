@@ -106,7 +106,7 @@ config.active_job.queue_adapter = :resque
 
 To start workers with resque, you run this command:
 
-`QUEUE=file_serve rake resque:work`
+`QUEUE="*" rake resque:work`
 
 For more info on Resque, you can visit the Github page at: [https://github.com/resque/resque]
 
