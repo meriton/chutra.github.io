@@ -11,3 +11,6 @@ github_username:  meriton
 
 # Build settings
 markdown: kramdown
+
+plugins:
+  - jekyll-sitemap
